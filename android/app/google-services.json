@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "94865575295",
+    "project_id": "yousef-90936",
+    "storage_bucket": "yousef-90936.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94865575295:android:c8f66c0d8d3a0177e9de4a",
+        "android_client_info": {
+          "package_name": "com.example.my_user_login_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqkJJ8xkzp3lX_9o9fzVjIKj3XEbIucG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94865575295:android:79560b8d16a707e5e9de4a",
+        "android_client_info": {
+          "package_name": "com.example.yousef"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqkJJ8xkzp3lX_9o9fzVjIKj3XEbIucG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
