@@ -34,7 +34,6 @@ void main() async {
 
   final storage = FlutterSecureStorage();
   final token = await storage.read(key: 'token');
-  // debugPrint("🔐 التوكن الحالي: $token");
 
   final apiService = ApiService();
   final pusherService = PusherService(
@@ -93,11 +92,9 @@ class _MyAppState extends State<MyApp> {
     );
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      // debugPrint('Notification permission granted.');
 
       final token = await FirebaseMessaging.instance.getToken();
       if (token != null) {
-        // debugPrint('FCM Token: $token');
         _sendFcmTokenToBackend(token);
       }
 
@@ -127,19 +124,15 @@ class _MyAppState extends State<MyApp> {
 });
 
       FirebaseMessaging.onMessageOpenedApp.listen((message) {
-        // debugPrint('Notification opened from background: ${message.data}');
         _handleNotificationTap(message.data);
       });
 
       final initialMessage =
           await FirebaseMessaging.instance.getInitialMessage();
       if (initialMessage != null) {
-        // debugPrint(
-        //     'App launched from terminated by notification: ${initialMessage.data}');
         _handleNotificationTap(initialMessage.data);
       }
     } else {
-      // debugPrint('User denied notification permission.');
     }
   }
 
@@ -161,13 +154,9 @@ class _MyAppState extends State<MyApp> {
       );
 
       if (response.statusCode == 200) {
-        // debugPrint('FCM token sent to backend successfully.');
       } else {
-        // debugPrint(
-        //     'Failed to send FCM token: ${response.statusCode} - ${response.body}');
       }
     } catch (e) {
-      // debugPrint('Error sending FCM token: $e');
     }
   }
 
@@ -187,10 +176,8 @@ class _MyAppState extends State<MyApp> {
               ),
             );
           } else {
-            // debugPrint('Conversation not found.');
           }
         } catch (e) {
-          // debugPrint('Error loading conversation: $e');
         }
       }
     }

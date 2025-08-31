@@ -2,7 +2,7 @@
 class Specialist {
   final String id; // يُفضل أن يكون int إذا كان الـ ID رقمًا
   final String name;
-  final String email;
+  final String? email;
   final String? phoneNumber;
   final String? avatarUrl; // قابل للقيم الخالية
   final String? type; // ثابت لكل الأخصائيين
@@ -11,7 +11,7 @@ class Specialist {
     required this.id,
     required this.name,
     this.phoneNumber,
-    required this.email,
+     this.email,
     this.avatarUrl,
     this.type,
   });

@@ -41,7 +41,7 @@ class ReportDetailsScreen extends StatelessWidget {
                 ),
                 _buildSectionHeader("الأخصائي", Icons.person),
                 FutureBuilder<Specialist?>(
-                  future: apiService.fetchSpecialistById(report.specialistId),
+                  future: apiService.fetchSpecialistById(report.specialist.id),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return _buildSpecialistCard(context, null,
@@ -105,7 +105,9 @@ class ReportDetailsScreen extends StatelessWidget {
       text = "الأخصائي غير متوفر";
       leadingWidget = Icon(Icons.error_outline, color: red);
     } else {
-      text = specialist?.name ?? "الأخصائي غير محدد";
+      text = report.specialist.name
+      // specialist?.name
+       ?? "الأخصائي غير محدد";
       leadingWidget = Icon(Icons.person, color: blue);
     }
 

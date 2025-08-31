@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:youseuf_app/View/Screens/Sheared/Login/auth_check_screen.dart';
@@ -66,11 +65,11 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
 
-  Future<void> _login() async {
+  Future<void> _login() async 
+  {
     if (_isLoading) return;
     setState(() => _isLoading = true);
     FocusScope.of(context).unfocus();
-
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
@@ -79,13 +78,11 @@ class _LoginScreenState extends State<LoginScreen>
       setState(() => _isLoading = false);
       return;
     }
-
     final api = ApiService();
     try {
       Map<String, dynamic>? response;
       String objectKey = '';
       String savedUserType = '';
-
       if (_currentRole == AppRole.specialist) {
         response = await api.loginSpecialist(email, password);
         objectKey = 'specialist';
@@ -111,6 +108,8 @@ class _LoginScreenState extends State<LoginScreen>
         final fcmToken = await FirebaseMessaging.instance.getToken();
         if (fcmToken != null) {
           final authToken = await api.getToken();
+           print("authToken=$authToken");
+         
           final currentUserId = await api.getCurrentUserId();
           if (authToken != null && currentUserId != null) {
             await api.sendFcmTokenToBackend(fcmToken, currentUserId, authToken);
@@ -131,8 +130,9 @@ class _LoginScreenState extends State<LoginScreen>
       }
     } catch (e) {
       setState(() => _isLoading = false);
-      _showSnackBar( '$e', isError: true);
+      _showSnackBar('$e', isError: true);
     }
+    
   }
 
   void _toggleObscure() => setState(() => _isObscured = !_isObscured);
